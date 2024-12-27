@@ -6,7 +6,7 @@ import SpawnPanel from "./spwan";
 import InfoPanel from "./info";
 import ColorsPanel from "./colors";
 import { useState } from "react";
-import { FaPalette ,FaWifi ,FaLocationDot ,FaCircleInfo  } from "react-icons/fa6";
+/* import { FaPalette ,FaWifi ,FaLocationDot ,FaCircleInfo  } from "react-icons/fa6"; */
 
 // 定义 Tab 的 key 类型
 type TabKey = "colors" | "wifi" | "spawn" | "info";
@@ -50,25 +50,25 @@ function TabSelector({ activeTab, setActiveTab }: TabSelectorProps) {
             >
                 <Tab key="colors" title={
                     <div className="flex items-center">
-                        <FaPalette className="mr-2" />
+                       {/*  <FaPalette className="mr-2" /> */}
                         颜色
                     </div>
                 } />
                 <Tab key="wifi" title={
                     <div className="flex items-center">
-                        <FaWifi className="mr-2" />
+                       {/*  <FaWifi className="mr-2" /> */}
                         WiFi
                     </div>
                 } />
                 <Tab key="spawn" title={
                     <div className="flex items-center">
-                        <FaLocationDot className="mr-2" />
+                       {/*  <FaLocationDot className="mr-2" /> */}
                         出生点
                     </div>
                 } />
                 <Tab key="info" title={
                     <div className="flex items-center">
-                        <FaCircleInfo className="mr-2" />
+                        {/* <FaCircleInfo className="mr-2" /> */}
                         固件信息
                     </div>
                 } />
