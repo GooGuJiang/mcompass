@@ -11,8 +11,9 @@ export default function Preference() {
 
     const [color, setColor] = useState("default");
 
-    return <div className="flex flex-col max-w-xl ">
-        <Card className="p-8">
+    return <div className="flex flex-col -mt-16 w-full" style={{ height: "calc(100vh - 190px)" }}>
+        <Card className="w-full max-w-8xl mx-auto h-full">
+            <div className="w-72 mx-auto">
             <Tabs
                 aria-label="Options"
                 color={color as any}
@@ -23,19 +24,20 @@ export default function Preference() {
                     if (key === "info") setColor("danger"); // red
                 }}
             >
-                <Tab key="colors" title="Colors">
+                <Tab key="colors" title="颜色">
                     <ColorsPanel />
                 </Tab>
                 <Tab key="wifi" title="WiFi">
                     <WiFiPanel />
                 </Tab>
-                <Tab key="spawn" title="Spawn">
+                <Tab key="spawn" title="出生点">
                     <SpawnPanel />
                 </Tab>
-                <Tab key="info" title="Info">
+                <Tab key="info" title="固件信息">
                     <InfoPanel />
                 </Tab>
             </Tabs>
+            </div>
         </Card>
     </div>;
 }

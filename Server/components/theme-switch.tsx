@@ -1,7 +1,4 @@
-"use client";
-
 import { FC } from "react";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
 import { useIsSSR } from "@react-aria/ssr";
@@ -38,6 +35,9 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     onChange,
   });
 
+  // 检查 slots 是否有 hiddenInput 函数，并决定是否使用
+  const hasHiddenInput = slots.hiddenInput && typeof slots.hiddenInput === "function";
+
   return (
     <Component
       {...getBaseProps({
@@ -48,27 +48,16 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         ),
       })}
     >
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      {/* 如果有 hiddenInput 函数，才执行它 */}
+      {hasHiddenInput && <input {...getInputProps()} />}
+      {!hasHiddenInput && <div>Input is not available</div>} {/* 或者渲染其他内容 */}
+      
       <div
         {...getWrapperProps()}
-        className={slots.wrapper({
-          class: clsx(
-            [
-              "w-auto h-auto",
-              "bg-transparent",
-              "rounded-lg",
-              "flex items-center justify-center",
-              "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
-              "pt-px",
-              "px-0",
-              "mx-0",
-            ],
-            classNames?.wrapper,
-          ),
-        })}
+        className={clsx(
+          "w-auto h-auto bg-transparent rounded-lg flex items-center justify-center group-data-[selected=true]:bg-transparent !text-default-500 pt-px px-0 mx-0",
+          classNames?.wrapper,
+        )}
       >
         {!isSelected || isSSR ? (
           <SunFilledIcon size={22} />

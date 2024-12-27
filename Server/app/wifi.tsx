@@ -36,21 +36,25 @@ export default function WiFiPanel() {
 
     return (
         <div className="flex flex-col items-center justify-center flex-wrap gap-4">
-            <p className="px-3 text-start w-full">Save WiFi might cause <br /> the device to restart.<br />And lost the current connection<br />If can not connect to new WiFi<br /> Device will use old WiFi.</p>
+            <p className="px-3 text-start w-full">
+            保存WiFi可能导致设备重启，<span className="block">并丢失当前连接。</span>
+            <span className="block">如果无法连接到新的WiFi，</span>
+            <span className="block">设备将使用旧的WiFi。</span>
+            </p>
             <Input
                 type="text"
-                label="SSID"
+                label="WIFI名称"
                 value={ssid}
                 onChange={handleSSIDChange}
             />
             <Input
                 type="text"
-                label="Password"
+                label="WIFI密码"
                 value={password}
                 onChange={handlePasswordChange}
             />
             <Button color="primary" variant="ghost" className="max-w-xs" onClick={saveWiFi}>
-                Save
+                保存
             </Button>
         </div>
     );

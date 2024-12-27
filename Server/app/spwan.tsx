@@ -65,7 +65,9 @@ export default function SpawnPanel() {
         }
     }
     return <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">
-        <p className="px-3 text-start w-full">Compass will point to <br />this location<br />when has GPS signal.</p>
+        <p className="px-3 text-start w-full">
+        当获取到GPS信号时，指南针将指向此位置。
+        </p>
         <Input type="number" label="Latitude" value={latitude} onChange={onLatitudeChange} />
         <Input type="number" label="Longitude" value={longitude} onChange={onLongitudeChange} />
         <Popover placement="bottom" isOpen={errorPopover} >
