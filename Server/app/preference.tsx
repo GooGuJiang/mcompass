@@ -38,7 +38,7 @@ function TabSelector({ activeTab, setActiveTab }: TabSelectorProps) {
                 zIndex: 9999,
                 position: "absolute", // 或者 "fixed" 根据需求
                 top: "91%", // 调整位置
-                left: "50%",
+                left: "47.3%",
                 transform: "translateX(-50%)", // 居中对齐
                 width: "300px", // 固定宽度，避免干扰其他元素
             }}
